@@ -6,7 +6,7 @@
 /*   By: lemille <lemille@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 18:52:59 by lemille           #+#    #+#             */
-/*   Updated: 2026/11/23 09:02:08 by lemille          ###   ########.fr       */
+/*   Updated: 2026/11/24 12:52:26 by lemille          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 int	ft_print_c(char c)
 {
 	ft_putchar_fd(c, 1);
-	return (0);
+	return (1);
 }
