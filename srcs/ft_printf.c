@@ -6,7 +6,7 @@
 /*   By: lemille <lemille@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 08:31:02 by lemille           #+#    #+#             */
-/*   Updated: 2026/11/25 08:56:42 by lemille          ###   ########lyon.fr   */
+/*   Updated: 2026/11/25 09:07:38 by lemille          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,10 @@ static int	ft_dispatch(char symbol, va_list args)
 		len = ft_print_nbr(symbol, args);
 	if (symbol == 'x' || symbol == 'X')
 		len = ft_print_hex(symbol, args);
+	if (symbol == 'p')
+		len = ft_print_p(args);
+	if (symbol == '%')
+		len = ft_print_c('%');
 	return (len);
 }
 
