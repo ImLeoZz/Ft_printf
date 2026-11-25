@@ -1,6 +1,6 @@
 NAME = libftprintf.a
 
-SRC = ft_printf.c ft_print_c.c
+SRC = ft_printf.c ft_print_str.c ft_print_number.c ft_print_hex.c ft_print_pointer.c
 INCLUDES = includes
 
 PRE = ./srcs/

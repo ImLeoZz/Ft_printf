@@ -6,7 +6,7 @@
 /*   By: lemille <lemille@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 14:08:08 by lemille           #+#    #+#             */
-/*   Updated: 2026/11/24 10:57:23 by lemille          ###   ########lyon.fr   */
+/*   Updated: 2026/11/25 07:50:58 by lemille          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 # define FT_PRINTF_H
 # include <stddef.h>
 
-// Getter
-size_t	ft_gettype(char *percent);
+// Main function
+int		ft_printf(const char *f, ...);
 
 // Print function
+int		ft_print_s(char *str);
+int		ft_print_int(int nb);
 int		ft_print_c(char c);
-int		ft_printf(const char *f, ...);
 
 #endif

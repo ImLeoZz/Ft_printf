@@ -6,7 +6,7 @@
 /*   By: lemille <lemille@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 08:31:02 by lemille           #+#    #+#             */
-/*   Updated: 2026/11/24 16:49:08 by lemille          ###   ########lyon.fr   */
+/*   Updated: 2026/11/25 08:10:07 by lemille          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,17 @@
 #include <unistd.h>
 #include "libft.h"
 
-static int	ft_print_params(char symbol, va_list args)
+static int	ft_dispatch(char symbol, va_list args)
 {
-	char	*s;
-	size_t	k;
-	char	c;
+	size_t	len;
 
-	k = 0;
-	if (symbol == 'c')
-	{
-		c = va_arg(args, int);
-		ft_putchar_fd(c, 1);
-		k++;
-	}
-	else if (symbol == 's')
-	{
-		s = va_arg(args, char *);
-		ft_putstr_fd(s, 1);
-		k = ft_strlen(s);
-	}
-	return (k);
+	if (symbol == 'c' || symbol == 's')
+		len = ft_print_str(args);
+	if (symbol == 'd' || symbol == 'i' || symbol == 'u')
+		len = ft_print_nbr(args);
+	if (symbol == 'x' || symbol == 'X')
+		len = ft_print_hex(args);
+	return (len);
 }
 
 int	ft_printf(const char *f, ...)
@@ -49,13 +40,11 @@ int	ft_printf(const char *f, ...)
 	while (f[k])
 	{
 		if (f[k] == '%')
-		{
-			blud += ft_print_params(f[++k], args);
-		}
+			blud += ft_dispatch(f[++k], args);
 		else
-			write(1, &f[k], 1);
+			blud += ft_print_c(f[k]);
 		k++;
 	}
 	va_end(args);
-	return (blud + k);
+	return (blud);
 }

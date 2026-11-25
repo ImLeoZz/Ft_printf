@@ -1,19 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_c.c                                       :+:      :+:    :+:   */
+/*   ft_print_number.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lemille <lemille@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/20 18:52:59 by lemille           #+#    #+#             */
-/*   Updated: 2026/11/24 12:52:26 by lemille          ###   ########.fr       */
+/*   Created: 2026/11/25 07:45:20 by lemille           #+#    #+#             */
+/*   Updated: 2026/11/25 07:46:15 by lemille          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_print_c(char c)
+static size_t	ft_intlen(long int nb)
 {
-	ft_putchar_fd(c, 1);
-	return (1);
+	size_t	k;
+
+	k = 1;
+	if (nb < 0)
+	{
+		nb *= -1;
+		k++;
+	}
+	while (nb > 9)
+	{
+		nb /= 10;
+		k++;
+	}
+	return (k);
+}
+
+int	ft_print_int(int nb)
+{
+	ft_putnbr_fd(nb, 1);
+	return (ft_intlen(nb));
 }
