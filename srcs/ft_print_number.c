@@ -6,7 +6,7 @@
 /*   By: lemille <lemille@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/25 07:45:20 by lemille           #+#    #+#             */
-/*   Updated: 2026/11/25 07:46:15 by lemille          ###   ########lyon.fr   */
+/*   Updated: 2026/11/25 08:56:00 by lemille          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ static size_t	ft_intlen(long int nb)
 }
 
 int	ft_print_int(int nb)
+{
+	ft_putnbr_fd(nb, 1);
+	return (ft_intlen(nb));
+}
+
+int	ft_print_uint(unsigned int nb)
 {
 	ft_putnbr_fd(nb, 1);
 	return (ft_intlen(nb));

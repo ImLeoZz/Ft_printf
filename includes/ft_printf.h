@@ -6,7 +6,7 @@
 /*   By: lemille <lemille@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 14:08:08 by lemille           #+#    #+#             */
-/*   Updated: 2026/11/25 07:50:58 by lemille          ###   ########lyon.fr   */
+/*   Updated: 2026/11/25 08:58:00 by lemille          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@
 // Main function
 int		ft_printf(const char *f, ...);
 
-// Print function
+// Print str function
 int		ft_print_s(char *str);
-int		ft_print_int(int nb);
 int		ft_print_c(char c);
+
+// Print nbr function
+int		ft_print_uint(unsigned int nb);
+int		ft_print_int(int nb);
 
 #endif
