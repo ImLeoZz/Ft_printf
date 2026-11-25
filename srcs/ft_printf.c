@@ -6,39 +6,38 @@
 /*   By: lemille <lemille@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 08:31:02 by lemille           #+#    #+#             */
-/*   Updated: 2026/11/25 09:07:38 by lemille          ###   ########lyon.fr   */
+/*   Updated: 2026/11/25 14:22:59 by lemille          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdarg.h>
 #include <unistd.h>
-#include "libft.h"
 
 static int	ft_print_hex(char symbol, va_list args)
 {
-	unsigned int	x;
 	int				len;
+	unsigned int	x;
 
 	len = 0;
 	if (symbol == 'x')
 	{
 		x = va_arg(args, unsigned int);
-		len += ft_print_xh(x);
+		len += ft_print_lowerhex(x);
 	}
-	if (symbol == 'X')
+	else if (symbol == 'X')
 	{
 		x = va_arg(args, unsigned int);
-		len += ft_print_Xh(x);
+		len += ft_print_upperhex(x);
 	}
 	return (len);
 }
 
 static int	ft_print_nbr(char symbol, va_list args)
 {
-	unsigned int	u;
-	int				len;
-	int				di;
+	unsigned long int	u;
+	int					len;
+	int					di;
 
 	len = 0;
 	if (symbol == 'd' || symbol == 'i')
@@ -85,7 +84,7 @@ static int	ft_dispatch(char symbol, va_list args)
 	if (symbol == 'x' || symbol == 'X')
 		len = ft_print_hex(symbol, args);
 	if (symbol == 'p')
-		len = ft_print_p(args);
+		len = ft_print_p(&args);
 	if (symbol == '%')
 		len = ft_print_c('%');
 	return (len);

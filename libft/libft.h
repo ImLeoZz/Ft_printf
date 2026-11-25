@@ -6,7 +6,7 @@
 /*   By: lemille <lemille@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 14:40:28 by lemille           #+#    #+#             */
-/*   Updated: 2026/11/17 22:37:13 by lemille          ###   ########lyon.fr   */
+/*   Updated: 2026/11/25 13:58:11 by lemille          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void			*ft_memset(void *s, int c, size_t n);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putchar_fd(char c, int fd);
-void			ft_putnbr_fd(int n, int fd);
+void			ft_putnbr_fd(long int n, int fd);
 void			ft_bzero(void *s, size_t n);
 char			**ft_split(char const *s, char c);
 char			*ft_strnstr(const char *big, const char *little, size_t len);

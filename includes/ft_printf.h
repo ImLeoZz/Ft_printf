@@ -6,7 +6,7 @@
 /*   By: lemille <lemille@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 14:08:08 by lemille           #+#    #+#             */
-/*   Updated: 2026/11/25 08:58:00 by lemille          ###   ########lyon.fr   */
+/*   Updated: 2026/11/25 12:21:06 by lemille          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,12 @@ int		ft_print_c(char c);
 // Print nbr function
 int		ft_print_uint(unsigned int nb);
 int		ft_print_int(int nb);
+
+// Print hex
+int		ft_print_lowerhex(unsigned int n);
+int		ft_print_upperhex(unsigned int n);
+
+// Print pointer
+int		ft_print_p(void *p);
 
 #endif
