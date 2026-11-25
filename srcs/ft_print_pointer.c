@@ -6,11 +6,12 @@
 /*   By: lemille <lemille@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/25 14:06:28 by lemille           #+#    #+#             */
-/*   Updated: 2026/11/25 14:18:11 by lemille          ###   ########lyon.fr   */
+/*   Updated: 2026/11/25 14:29:32 by lemille          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdarg.h>
 
 static int	ft_put_phex(unsigned long n)
 {
@@ -32,11 +33,13 @@ static int	ft_put_phex(unsigned long n)
 	return (len);
 }
 
-int	ft_print_p(void *p)
+int	ft_print_p(va_list args)
 {
-	int	len;
+	void	*p;
+	int		len;
 
 	len = 0;
+	p = va_arg(args, void *);
 	if (!p)
 		len += ft_print_s("(nil)");
 	else

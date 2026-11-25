@@ -6,13 +6,13 @@
 /*   By: lemille <lemille@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 14:08:08 by lemille           #+#    #+#             */
-/*   Updated: 2026/11/25 12:21:06 by lemille          ###   ########lyon.fr   */
+/*   Updated: 2026/11/25 16:26:08 by lemille          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include <stddef.h>
+# include <stdarg.h>
 
 // Main function
 int		ft_printf(const char *f, ...);
@@ -30,6 +30,6 @@ int		ft_print_lowerhex(unsigned int n);
 int		ft_print_upperhex(unsigned int n);
 
 // Print pointer
-int		ft_print_p(void *p);
+int		ft_print_p(va_list args);
 
 #endif

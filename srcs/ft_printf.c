@@ -6,13 +6,12 @@
 /*   By: lemille <lemille@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 08:31:02 by lemille           #+#    #+#             */
-/*   Updated: 2026/11/25 14:22:59 by lemille          ###   ########lyon.fr   */
+/*   Updated: 2026/11/25 16:31:25 by lemille          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdarg.h>
-#include <unistd.h>
 
 static int	ft_print_hex(char symbol, va_list args)
 {
@@ -77,16 +76,19 @@ static int	ft_dispatch(char symbol, va_list args)
 {
 	int	len;
 
+	len = 0;
 	if (symbol == 'c' || symbol == 's')
 		len = ft_print_str(symbol, args);
-	if (symbol == 'd' || symbol == 'i' || symbol == 'u')
+	else if (symbol == 'd' || symbol == 'i' || symbol == 'u')
 		len = ft_print_nbr(symbol, args);
-	if (symbol == 'x' || symbol == 'X')
+	else if (symbol == 'x' || symbol == 'X')
 		len = ft_print_hex(symbol, args);
-	if (symbol == 'p')
-		len = ft_print_p(&args);
-	if (symbol == '%')
+	else if (symbol == 'p')
+		len = ft_print_p(args);
+	else if (symbol == '%')
 		len = ft_print_c('%');
+	else
+		len = ft_print_c('%') + ft_print_c(symbol);
 	return (len);
 }
 
@@ -94,18 +96,26 @@ int	ft_printf(const char *f, ...)
 {
 	va_list	args;
 	int		blud;
-	size_t	k;
+	int		k;
 
-	k = 0;
+	k = -1;
 	blud = 0;
+	if (!f)
+		return (-1);
 	va_start(args, f);
-	while (f[k])
+	while (f[++k])
 	{
 		if (f[k] == '%')
+		{
+			if (!f[k + 1])
+			{
+				va_end(args);
+				return (-1);
+			}
 			blud += ft_dispatch(f[++k], args);
+		}
 		else
 			blud += ft_print_c(f[k]);
-		k++;
 	}
 	va_end(args);
 	return (blud);
